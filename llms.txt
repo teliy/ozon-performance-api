@@ -1,0 +1,25 @@
+# Ozon Performance API — Полный справочник
+
+> Структурированный справочник Ozon Performance API (2.0), конвертированный из официальной PDF-документации. Оптимизирован для LLM и RAG-систем.
+
+Базовый URL: https://api-performance.ozon.ru
+Аутентификация: Bearer-токен через POST /api/client/token (client_id + client_secret + grant_type=client_credentials, токен живёт 1800 секунд).
+Лимит: 100 000 запросов в сутки. Отчёты асинхронные: генерация → UUID → статус → скачивание по ссылке.
+
+## Справочные файлы
+
+- [README.md](README.md): введение, авторизация (API-ключ и OAuth), лимиты запросов, общие соглашения и перечисления (enum), полный индекс всех методов.
+- [docs/campaigns.md](docs/campaigns.md): кампании и рекламируемые объекты — GET /api/client/campaign; GET /api/client/campaign/{campaignId}/objects; GET /api/client/limits/list; POST /api/client/min/sku; GET /api/client/products_with_bonuses; POST /api/client/campaign/{campaignId}/activate; POST /api/client/campaign/{campaignId}/deactivate; PATCH /api/client/campaign/{campaignId}; POST /external/api/dynamic_budget (deprecated).
+- [docs/click-payment.md](docs/click-payment.md): оплата за клик (CPC) — POST /api/client/campaign/cpc/v2/product; POST /api/client/campaign/{campaignId}/products; PUT /api/client/campaign/{campaignId}/products; GET /api/client/campaign/{campaignId}/v2/products; POST /api/client/campaign/{campaignId}/products/delete; GET /api/client/campaign/{campaignId}/products/bids/competitive.
+- [docs/order-payment.md](docs/order-payment.md): оплата за заказ (CPO) — POST /api/client/campaign/search_promo/v2/products; POST /api/client/search_promo/bids/recommendation (deprecated); POST /api/client/campaign/search_promo/v2/bids/set (deprecated); POST /api/client/search_promo/get_cpo_min_bids; POST /api/client/search_promo/product/enable; POST /api/client/search_promo/product/disable; POST /api/client/campaign/search_promo/v2/bids/delete; GET /api/client/campaign/all_sku_promo/activate; GET /api/client/campaign/all_sku_promo/deactivate; GET /api/client/campaign/all_sku_promo/set_bid; POST /api/client/campaign/search_promo/carrots/enable; POST /api/client/campaign/search_promo/carrots/disable.
+- [docs/statistics.md](docs/statistics.md): статистика и отчёты — POST /api/client/statistics; POST /api/client/statistics/video; POST /api/client/statistics/attribution; GET /api/client/statistics/{UUID}; GET /api/client/statistics/list; GET /api/client/statistics/externallist; GET /api/client/statistics/report; GET /api/client/statistics/campaign/media; GET /api/client/statistics/campaign/product; GET /api/client/statistics/expense; GET /api/client/statistics/daily; POST /api/client/statistic/orders/generate; POST /api/client/statistic/products/generate; GET /api/client/statistics/all_sku_promo/orders/generate; GET /api/client/statistics/all_sku_promo/products/generate; POST /api/client/statistics/phrases; POST /api/client/statistics/products/sku.
+- [docs/external-traffic.md](docs/external-traffic.md): аналитика внешнего трафика — POST /api/client/vendors/statistics; GET /api/client/vendors/statistics/list; GET /api/client/vendors/statistics/{UUID}; GET /api/client/organisation/vendor_tag.
+- [docs/updates.md](docs/updates.md): история изменений API с 2021 по 2026 год.
+
+## Ключевые концепции
+
+- Типы оплаты кампаний: CPC (за клики), CPM (за показы), CPO (за заказы).
+- Типы кампаний (advObjectType): SKU, BANNER, SEARCH_PROMO, VIDEO_BANNER.
+- Бюджеты указываются в миллионных долях рубля: 1 000 000 = 1 рубль.
+- Отчёты: CSV по умолчанию, ZIP при нескольких кампаниях, JSON при добавлении /json к адресу метода.
+- Максимальный период отчёта — 62 дня. Даты в отчётах — по московскому времени.
