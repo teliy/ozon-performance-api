@@ -173,7 +173,7 @@ GET /api/client/vendors/statistics/{UUID}
 **Пример запроса:**
 
 ```http
-GET /api/client/vendors/statistics/0c159c60-ab92-46d9-9a6b-d225d1087f78?vendor=true HTTP/1.1
+GET /api/client/vendors/statistics/0c159c60-ab92-46d9-9a6b-d225dbf5c7b1?vendor=true HTTP/1.1
 Host: api-performance.ozon.ru:443
 Authorization: Bearer <token>
 ```

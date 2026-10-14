@@ -92,7 +92,7 @@ Authorization: Bearer <token>
 
 ```json
 {
-  "UUID": "0c159c60-ab92-46d9-9a6b-d225d1087f78",
+  "UUID": "0c159c60-ab92-46d9-9a6b-d225dbf5c7b1",
   "vendor": true
 }
 ```
@@ -171,7 +171,7 @@ Authorization: Bearer <token>
 
 ```json
 {
-  "UUID": "0c159c60-ab92-46d9-9a6b-d225d1087f78",
+  "UUID": "0c159c60-ab92-46d9-9a6b-d225dbf5c7b1",
   "vendor": true
 }
 ```
@@ -250,7 +250,7 @@ Authorization: Bearer <token>
 
 ```json
 {
-  "UUID": "0c159c60-ab92-46d9-9a6b-d225d1087f78"
+  "UUID": "0c159c60-ab92-46d9-9a6b-d225dbf5c7b1"
 }
 ```
 
@@ -288,7 +288,7 @@ GET /api/client/statistics/{UUID}
 **Пример запроса:**
 
 ```http
-GET /api/client/statistics/0c159c60-ab92-46d9-9a6b-d225d1087f78 HTTP/1.1
+GET /api/client/statistics/0c159c60-ab92-46d9-9a6b-d225dbf5c7b1 HTTP/1.1
 Host: api-performance.ozon.ru:443
 Authorization: Bearer <token>
 Content-Type: application/json
@@ -299,10 +299,10 @@ Accept: application/json
 
 ```json
 {
-  "UUID": "0c159c60-ab92-46d9-9a6b-d225d1087f78",
+  "UUID": "0c159c60-ab92-46d9-9a6b-d225dbf5c7b1",
   "state": "OK",
-  "createdAt": "2020-03-23T19:30:58.264645Z",
-  "updatedAt": "2020-03-23T19:30:58.689043Z",
+  "createdAt": "2020-03-23T19:30:58.264653Z",
+  "updatedAt": "2020-03-23T19:30:58.689007Z",
   "request": {
     "attributionDays": "",
     "campaignId": 1,
@@ -513,7 +513,7 @@ GET /api/client/statistics/report
 **Пример запроса:**
 
 ```http
-GET /api/client/statistics/report?UUID=0c159c60-ab92-46d9-9a6b-d225d1087f78 HTTP/1.1
+GET /api/client/statistics/report?UUID=0c159c60-ab92-46d9-9a6b-d225dbf5c7b1 HTTP/1.1
 Host: api-performance.ozon.ru:443
 Authorization: Bearer <token>
 ```
@@ -521,9 +521,9 @@ Authorization: Bearer <token>
 **Пример ответа (200, text/csv):**
 
 ```csv
-; Кампания по продвижению товаров № 138830
-sku; Название товара; Цена товара, Р; Показы; ...
-Bcero;;;0;0;0,00; 0; 0,00;0,00; 0,00; 0; 0
+; Кампания по продвижению товаров № 13883040, период 03.01.2025-03.01.2025 
+sku; Название товара; Цена товара, Р; Показы; Клики; CTR (%); В корзину; Ср. цена клика, г;Ср. цена 1000 показов, Р; Расход, Р, с НДС; Заказы; Выручка, Р; Заказы модели; Выручка с заказов модели, Р;ДРР, %: Дата добавления 
+Bcero;;;0;0;0,00; 0; 0,00;0,00; 0,00; 0; 0,00;0;0,00;0,00
 ```
 
 **Ошибка:** `default` — ошибка запроса.
@@ -581,7 +581,7 @@ GET /api/client/statistics/campaign/media
 **Пример запроса:**
 
 ```http
-GET /api/client/statistics/campaign/media?dateFrom=2019-02-10&dateTo=2019-02-20 HTTP/1.1
+GET /api/client/statistics/campaign/media?dateFrom=2024-08-01&dateTo=2024-08-01&campaignIds=11037395&campaignIds=11037396 HTTP/1.1
 Host: api-performance.ozon.ru:443
 Authorization: Bearer <token>
 Content-Type: application/json
@@ -650,7 +650,7 @@ GET /api/client/statistics/campaign/product
 **Пример запроса:**
 
 ```http
-GET /api/client/statistics/campaign/product?dateFrom=2019-02-10&dateTo=2019-02-20 HTTP/1.1
+GET /api/client/statistics/campaign/product?dateFrom=2024-08-01&dateTo=2024-08-07&campaignIds=11037395&campaignIds=11037396 HTTP/1.1
 Host: api-performance.ozon.ru:443
 Authorization: Bearer <token>
 Content-Type: application/json

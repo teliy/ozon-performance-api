@@ -89,7 +89,7 @@ Authorization: Bearer <token>
       "bidPrice": "string",
       "bidWithoutAdditive": 0,
       "carrotsAdditive": 0,
-      "carrotsStatus": "CARROTS_STATUS_NONE",
+      "carrotsStatus": "CARROTS_STATUS_INVALID",
       "hint": {
         "campaignId": "string",
         "organisationTitle": "string"

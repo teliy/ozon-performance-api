@@ -65,7 +65,7 @@ GET /api/client/campaign
 **Пример запроса:**
 
 ```http
-GET /api/client/campaign?campaignIds=52374&advObjectType=SKU HTTP/1.1
+GET /api/client/campaign?campaignIds=52374&advObjectType=SKU&state=CAMPAIGN_STATE_UNKNOWN HTTP/1.1
 Host: api-performance.ozon.ru:443
 Content-Type: application/json
 Accept: application/json
@@ -89,8 +89,8 @@ Authorization: Bearer <token>
       "PLACEMENT_PDP"
     ],
     "budget": 50000000,
-    "createdAt": "2019-10-07T06:28:44.034Z",
-    "updatedAt": "2020-10-01T06:28:44.034Z",
+    "createdAt": "2019-10-07T06:28:44.055042Z",
+    "updatedAt": "2020-10-01T06:28:44.055042Z",
     "productAutopilotStrategy": "NO_AUTO_STRATEGY",
     "productCampaignMode": "PRODUCT_CAMPAIGN_MODE_AUTO"
   }
@@ -385,7 +385,7 @@ Authorization: Bearer <token>
   "productAutopilotStrategy": "MAX_CLICKS",
   "autopilot": {
     "categoryId": "string",
-    "skuAddMode": "PRODUCT_CAMPAIGN_SKU_ADD_MODE_AUTO"
+    "skuAddMode": "PRODUCT_CAMPAIGN_SKU_ADD_MODE_UNKNOWN"
   },
   "createdAt": "2019-08-24T14:15:22Z",
   "updatedAt": "2019-08-24T14:15:22Z",
@@ -468,7 +468,7 @@ Authorization: Bearer <token>
   "productAutopilotStrategy": "MAX_CLICKS",
   "autopilot": {
     "categoryId": "string",
-    "skuAddMode": "PRODUCT_CAMPAIGN_SKU_ADD_MODE_AUTO"
+    "skuAddMode": "PRODUCT_CAMPAIGN_SKU_ADD_MODE_UNKNOWN"
   },
   "createdAt": "2019-08-24T14:15:22Z",
   "updatedAt": "2019-08-24T14:15:22Z",
@@ -500,7 +500,7 @@ PATCH /api/client/campaign/{campaignId}
 |---|---|---|---|
 | `autopilot` | object | Условно | Информация о кампании. Обязательный параметр, если в параметре `productAutopilotStrategy` включена автостратегия |
 | `autopilot.categoryId` | string | Нет | Идентификатор категории для автостратегии |
-| `autopilot.skuAddMode` | string | Нет | Режим добавления товаров: `PRODUCT_CAMPAIGN_SKU_ADD_MODE_AUTO` / `PRODUCT_CAMPAIGN_SKU_ADD_MODE_MANUAL` |
+| `autopilot.skuAddMode` | string | Нет | Режим добавления товаров в кампанию |
 | `fromDate` | string | Нет | Дата начала рекламной кампании по московскому времени. Не может быть раньше текущей даты |
 | `toDate` | string | Нет | Дата окончания рекламной кампании по московскому времени. Не может быть раньше даты начала |
 | `budget` | string \<uint64\> | Нет | Ограничение общего бюджета рекламной кампании. Единица измерения — одна миллионная доля рубля, округляется до копеек. Учитывается только для автоматических кампаний брендов и агентств. В других организациях установить новое ограничение общего бюджета не получится. Если у кампании уже установлен бюджет, можно: убрать ограничения — передайте `0` в этом параметре; не менять бюджет кампании — когда он будет исчерпан, уберите ограничения бюджета или создайте новую кампанию с неограниченным бюджетом |
@@ -527,7 +527,7 @@ Authorization: Bearer <token>
 {
   "autopilot": {
     "categoryId": "string",
-    "skuAddMode": "PRODUCT_CAMPAIGN_SKU_ADD_MODE_AUTO"
+    "skuAddMode": "PRODUCT_CAMPAIGN_SKU_ADD_MODE_UNKNOWN"
   },
   "fromDate": "string",
   "toDate": "string",
