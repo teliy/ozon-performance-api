@@ -422,15 +422,15 @@ POST /api/client/campaign/{campaignId}/deactivate
 | Поле | Тип | Описание |
 |---|---|---|
 | `id` | string \<uint64\> | Идентификатор кампании |
-| `autostopStatus` | string | Статус кампании (см. enum в методе [Активировать кампанию](#активировать-кампанию)) |
+| `autostopStatus` | string | Статус кампании. Default: `AUTOSTOP_STATUS_NONE`. Enum: `AUTOSTOP_STATUS_NONE` — продавец создал кампанию вручную; `AUTOSTOP_STATUS_ENABLED` — кампания создана автоматически и остановится, когда кончатся баллы; `AUTOSTOP_STATUS_DISABLED` — кампания создана автоматически, но она не остановится, когда кончатся баллы; `AUTOSTOP_STATUS_STOPPED` — баллы закончились, кампания остановлена автоматически |
 | `isAutocreated` | boolean | `true`, если кампания создана автоматически |
 | `paymentType` | string | Тип оплаты: `CPC`, `CPM`, `CPO` |
 | `title` | string | Название кампании |
 | `state` | string | Состояние кампании |
 | `fromDate` / `toDate` | string | Даты старта и завершения кампании |
 | `budget` / `dailyBudget` / `weeklyBudget` | string \<uint64\> | Бюджеты кампании в миллионных долях рубля |
-| `placement` | string | Место размещения продвигаемых товаров |
-| `productAutopilotStrategy` | string | Стратегия кампании |
+| `placement` | string | Место размещения продвигаемых товаров. Default: `PLACEMENT_INVALID`. Enum: `PLACEMENT_INVALID`; `PLACEMENT_PDP` — карточка товара, доступно только для кампаний с ручным управлением; `PLACEMENT_SEARCH_AND_CATEGORY` — поиск и рекомендации; `PLACEMENT_TOP_PROMOTION` — поиск; `PLACEMENT_OVERTOP` — поиск и главная |
+| `productAutopilotStrategy` | string | Стратегия, которая используется для кампании. Enum: `MAX_CLICKS` — автостратегия для Поиска и рекомендаций; `TOP_MAX_CLICKS` — автостратегия для Поиска; `TARGET_BIDS` — средняя стоимость клика для Поиска и рекомендаций; `TOP_PROMOTION` — вывод в топ; `TARGET_CIR` — целевой расход |
 | `autopilot` | object | Информация об автостратегии |
 | `createdAt` / `updatedAt` | string \<date-time\> | Даты создания и обновления в формате RFC3339 |
 | `productCampaignMode` | string | Режим управления кампанией: `PRODUCT_CAMPAIGN_MODE_AUTO` / `PRODUCT_CAMPAIGN_MODE_MANUAL` |
