@@ -92,10 +92,10 @@
 
 | Метод | Изменение |
 |---|---|
-| `GET /api/client/campaign` | Обновили описание методов |
-| `POST /api/client/campaign/cpc/v2/product` | В запросе методов: пометили параметр `ProductAdvPlacements` как устаревший; удалили параметр `autoIncreasePercent` |
-| `POST /api/client/campaign/{campaignId}/activate` | Пометили параметр `ProductAdvPlacements` как устаревший в ответе метода. Удалили параметр `autoIncrease` из ответа методов. Удалили значение `PLACEMENT_OVERTOP` параметра `placement` и значение `TAKEOVER` параметра `productAutopilotStrategy` в запросе метода |
-| `POST /api/client/campaign/{campaignId}/deactivate` | Аналогично `activate` |
+| `GET /api/client/campaign` | Обновили описание методов. Удалили параметр `autoIncrease` из ответа методов |
+| `POST /api/client/campaign/cpc/v2/product` | В запросе метода: пометили параметр `ProductAdvPlacements` как устаревший; удалили параметр `autoIncreasePercent`. Удалили значение `PLACEMENT_OVERTOP` параметра `placement` и значение `TAKEOVER` параметра `productAutopilotStrategy` в запросе метода |
+| `POST /api/client/campaign/{campaignId}/activate` | Пометили параметр `ProductAdvPlacements` как устаревший в ответе метода. Удалили параметр `autoIncrease` из ответа методов |
+| `POST /api/client/campaign/{campaignId}/deactivate` | Обновили описание методов. Удалили параметр `autoIncrease` из ответа методов |
 | `PATCH /api/client/campaign/{campaignId}` | В запросе методов: пометили параметр `ProductAdvPlacements` как устаревший; удалили параметр `autoIncreasePercent` |
 
 ## 18 ноября 2025
@@ -169,7 +169,7 @@
 | `GET /api/client/campaign` | Обновили описание параметра `advObjectType` в запросе метода. Обновили описание параметров `list.advObjectType`, `list.placement` и `list.productAutopilotStrategy` в ответе метода |
 | `GET /api/client/campaign/{campaignId}/objects` | Обновили описание методов |
 | `POST /api/client/statistics` | Обновили описание метода |
-| `GET /api/client/limits/list` | Обновили описание параметров `limits.objectType` и `limit.placement` в ответе метода |
+| `GET /api/client/limits/list` | Обновили описание метода. Обновили описание параметров `limits.objectType` и `limit.placement` в ответе метода |
 | `POST /api/client/min/sku` | Обновили описание параметра `paymentType` в запросе метода |
 | `GET /api/client/statistics/campaign/product` | Изменили название метода |
 | — | Изменили название раздела «Трафареты и вывод в топ» на «Оплата за клик» |
@@ -208,6 +208,9 @@
 | `POST /api/client/statistics` | Обновили описание методов |
 | `POST /api/client/statistic/orders/generate` | Изменили название методов |
 | `POST /api/client/statistic/products/generate` | Изменили название методов |
+| `POST /api/client/campaign/search_promo/v2/bids/delete` | Изменили название методов |
+| `POST /api/client/search_promo/product/enable` | Изменили название методов |
+| `POST /api/client/search_promo/product/disable` | Изменили название методов |
 | `POST /external/api/dynamic_budget` | В запросе метода: пометили устаревшим значение `CAMPAIGN_PLACEMENT_TAKEOVER` в параметре `createCampaign.placement`; удалили значение `TAKEOVER` в параметре `createCampaign.autopilotStrategy`; удалили значение `TAKEOVER` в параметре `updateCampaign.autopilotStrategy` |
 | — | Изменили название раздела «Продвижение в поиске» на «Оплата за заказ» |
 
@@ -384,6 +387,7 @@
 | `POST /campaign/cpm/product` | Метод устарел, удалили его из документации |
 | `POST /campaign/cpm/v2/product` | Пометили метод устаревшим |
 | `POST /campaign/{campaignId}/v2/activate` | Обновили описания методов |
+| `POST /campaign/{campaignId}/activate` | Обновили описания методов |
 
 ## 1 июля 2024
 
@@ -601,11 +605,6 @@
 | `POST /campaign/{campaignId}/group` | Обновили описания методов |
 | `PUT /campaign/{campaignId}/group/{groupId}` | Обновили описания методов |
 | `POST /statistics/phrases` | Обновили описания методов |
-
-## 10 августа 2022
-
-| Метод | Изменение |
-|---|---|
 | `GET /campaign/available` | Добавили метод для получения доступных режимов создания рекламных кампаний |
 
 ## 11 июля 2022
